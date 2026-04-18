@@ -448,11 +448,32 @@ def export_csv(
 
 
 # ── Frontend ────────────────────────────────────────────────────────────────
-app.mount("/static", StaticFiles(directory=str(BASE_DIR / "static")), name="static")
+# Soporta dos layouts:
+#   A) index.html en static/index.html  (layout preferido)
+#   B) index.html en la raíz del proyecto (cuando static/ no existe en Render)
+_STATIC_DIR  = BASE_DIR / "static"
+_INDEX_PATHS = [
+    _STATIC_DIR / "index.html",   # A: subcarpeta static/
+    BASE_DIR    / "index.html",   # B: raíz del proyecto
+]
+
+def _find_index() -> Path:
+    for p in _INDEX_PATHS:
+        if p.exists():
+            return p
+    raise RuntimeError(
+        "index.html no encontrado. Debe estar en static/index.html o en la raíz del proyecto."
+    )
+
+if _STATIC_DIR.exists():
+    app.mount("/static", StaticFiles(directory=str(_STATIC_DIR)), name="static")
+    log.info("Sirviendo archivos estáticos desde: %s", _STATIC_DIR)
+else:
+    # Fallback: servir archivos desde la raíz (Render sin carpeta static/)
+    app.mount("/static", StaticFiles(directory=str(BASE_DIR)), name="static")
+    log.warning("Carpeta static/ no encontrada — sirviendo desde raíz: %s", BASE_DIR)
 
 
 @app.get("/", response_class=HTMLResponse)
 def root():
-    return HTMLResponse(
-        (BASE_DIR / "static" / "index.html").read_text(encoding="utf-8")
-    )
+    return HTMLResponse(_find_index().read_text(encoding="utf-8"))
