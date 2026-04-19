@@ -25,322 +25,130 @@
     --shadow:    0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.05);
     --db1-bg:    #eff6ff; --db1-c: #1d4ed8;
     --db2-bg:    #fdf4ff; --db2-c: #7e22ce;
+    --adj-bg:    #fff7ed; --adj-border: #fed7aa;
+    --adj-c:     #c2410c; --adj-lt: #fff7ed;
+    --adj-line:  #ea580c; --adj-fill: rgba(234,88,12,.07);
   }
 
-  body {
-    font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
-    font-size: 14px;
-    line-height: 1.5;
-    background: var(--bg);
-    color: var(--text);
-    min-height: 100vh;
-  }
+  body { font-family: system-ui,-apple-system,'Segoe UI',sans-serif; font-size:14px; line-height:1.5; background:var(--bg); color:var(--text); min-height:100vh; }
 
-  /* ── Header ──────────────────────────────────────────────── */
-  header {
-    background: var(--accent);
-    color: #fff;
-    padding: 0 24px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    box-shadow: 0 2px 10px rgba(0,0,0,.22);
-  }
-  .hdr-logo { font-size: 28px; line-height: 1; }
-  .hdr-titles { display: flex; flex-direction: column; gap: 1px; }
-  header h1 { font-size: 15px; font-weight: 700; letter-spacing: -.01em; }
-  .header-sub { font-size: 11px; opacity: .72; }
-  .header-stats {
-    margin-left: auto;
-    font-size: 11px;
-    opacity: .72;
-    white-space: nowrap;
-    text-align: right;
-  }
-  .hdr-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 3px; }
-  .hdr-dot.ok  { background: #4ade80; }
-  .hdr-dot.err { background: #f87171; }
+  header { background:var(--accent); color:#fff; padding:0 24px; height:60px; display:flex; align-items:center; gap:16px; box-shadow:0 2px 10px rgba(0,0,0,.22); }
+  .hdr-logo { font-size:28px; line-height:1; }
+  .hdr-titles { display:flex; flex-direction:column; gap:1px; }
+  header h1 { font-size:15px; font-weight:700; letter-spacing:-.01em; }
+  .header-sub { font-size:11px; opacity:.72; }
+  .header-stats { margin-left:auto; font-size:11px; opacity:.72; white-space:nowrap; text-align:right; }
+  .hdr-dot { display:inline-block; width:7px; height:7px; border-radius:50%; margin-right:3px; }
+  .hdr-dot.ok  { background:#4ade80; }
+  .hdr-dot.err { background:#f87171; }
 
-  /* ── Layout ──────────────────────────────────────────────── */
-  .main { max-width: 1200px; margin: 0 auto; padding: 20px 16px; }
+  .main { max-width:1200px; margin:0 auto; padding:20px 16px; }
 
-  /* ── Card ────────────────────────────────────────────────── */
-  .card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    box-shadow: var(--shadow);
-    padding: 18px 22px;
-    margin-bottom: 14px;
-  }
-  .card-title {
-    font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: .12em;
-    color: var(--muted);
-    margin-bottom: 14px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .card-title::before {
-    content: '';
-    display: block;
-    width: 3px;
-    height: 13px;
-    background: var(--accent);
-    border-radius: 2px;
-    flex-shrink: 0;
-  }
+  .card { background:var(--surface); border:1px solid var(--border); border-radius:10px; box-shadow:var(--shadow); padding:18px 22px; margin-bottom:14px; }
+  .card-title { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:var(--muted); margin-bottom:14px; display:flex; align-items:center; gap:6px; }
+  .card-title::before { content:''; display:block; width:3px; height:13px; background:var(--accent); border-radius:2px; flex-shrink:0; }
+  .card-title.adj-title::before { background:var(--adj-line); }
 
-  /* ── Steps ───────────────────────────────────────────────── */
-  .steps { display: flex; gap: 6px; margin-bottom: 16px; flex-wrap: wrap; }
-  .step { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--muted); }
-  .step-num {
-    width: 20px; height: 20px;
-    border-radius: 50%;
-    background: var(--border);
-    color: var(--muted);
-    font-size: 10px; font-weight: 700;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-    transition: background .2s, color .2s;
-  }
-  .step.active .step-num  { background: var(--accent); color: #fff; }
-  .step.done .step-num    { background: #059669; color: #fff; }
-  .step-arrow { color: var(--border); font-size: 12px; }
+  .steps { display:flex; gap:6px; margin-bottom:16px; flex-wrap:wrap; }
+  .step { display:flex; align-items:center; gap:5px; font-size:11px; color:var(--muted); }
+  .step-num { width:20px; height:20px; border-radius:50%; background:var(--border); color:var(--muted); font-size:10px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:background .2s,color .2s; }
+  .step.active .step-num { background:var(--accent); color:#fff; }
+  .step.done .step-num   { background:#059669; color:#fff; }
+  .step-arrow { color:var(--border); font-size:12px; }
 
-  /* ── Form ────────────────────────────────────────────────── */
-  .row { display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-end; }
-  .field { display: flex; flex-direction: column; gap: 5px; }
-  .field label {
-    font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: .08em;
-    color: var(--muted);
-  }
+  .row { display:flex; flex-wrap:wrap; gap:14px; align-items:flex-end; }
+  .field { display:flex; flex-direction:column; gap:5px; }
+  .field label { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); }
 
-  select, input[type="date"] {
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 8px 11px;
-    font-size: 13px;
-    font-family: inherit;
-    color: var(--text);
-    background: #fff;
-    outline: none;
-    transition: border-color .15s, box-shadow .15s;
-    min-height: 36px;
-  }
-  select:focus, input[type="date"]:focus {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(29,78,216,.15);
-  }
-  select:disabled, input:disabled {
-    background: var(--bg);
-    color: var(--muted);
-    cursor: not-allowed;
-    opacity: .65;
-  }
+  select, input[type="date"] { border:1px solid var(--border); border-radius:6px; padding:8px 11px; font-size:13px; font-family:inherit; color:var(--text); background:#fff; outline:none; transition:border-color .15s,box-shadow .15s; min-height:36px; }
+  select:focus, input[type="date"]:focus { border-color:var(--accent); box-shadow:0 0 0 3px rgba(29,78,216,.15); }
+  select:disabled, input:disabled { background:var(--bg); color:var(--muted); cursor:not-allowed; opacity:.65; }
 
-  /* ── Buttons ─────────────────────────────────────────────── */
-  .btn {
-    display: inline-flex; align-items: center; gap: 6px;
-    padding: 8px 16px;
-    border-radius: 6px;
-    font-size: 13px; font-weight: 600; font-family: inherit;
-    border: none; cursor: pointer;
-    transition: background .15s, opacity .15s, transform .1s;
-    white-space: nowrap;
-    min-height: 36px;
-  }
-  .btn:not(:disabled):active { transform: scale(.98); }
-  .btn:disabled { opacity: .35; cursor: not-allowed; }
-  .btn-primary  { background: var(--accent); color: #fff; }
-  .btn-primary:not(:disabled):hover  { background: var(--accent-dk); }
-  .btn-success  { background: #059669; color: #fff; }
-  .btn-success:not(:disabled):hover  { background: #047857; }
-  .btn-ghost {
-    background: transparent;
-    color: var(--muted);
-    border: 1px solid var(--border);
-    font-size: 12px;
-    padding: 6px 12px;
-  }
-  .btn-ghost:not(:disabled):hover { background: var(--bg); color: var(--text); }
+  .btn { display:inline-flex; align-items:center; gap:6px; padding:8px 16px; border-radius:6px; font-size:13px; font-weight:600; font-family:inherit; border:none; cursor:pointer; transition:background .15s,opacity .15s,transform .1s; white-space:nowrap; min-height:36px; }
+  .btn:not(:disabled):active { transform:scale(.98); }
+  .btn:disabled { opacity:.35; cursor:not-allowed; }
+  .btn-primary { background:var(--accent); color:#fff; }
+  .btn-primary:not(:disabled):hover { background:var(--accent-dk); }
+  .btn-success { background:#059669; color:#fff; }
+  .btn-success:not(:disabled):hover { background:#047857; }
+  .btn-ghost { background:transparent; color:var(--muted); border:1px solid var(--border); font-size:12px; padding:6px 12px; }
+  .btn-ghost:not(:disabled):hover { background:var(--bg); color:var(--text); }
+  .btn-adj { background:var(--adj-c); color:#fff; }
+  .btn-adj:not(:disabled):hover { background:#9a3412; }
 
-  /* ── Badge ───────────────────────────────────────────────── */
-  .badge {
-    display: inline-block;
-    padding: 2px 8px;
-    border-radius: 20px;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: .04em;
-    vertical-align: middle;
-  }
-  .badge-1 { background: var(--db1-bg); color: var(--db1-c); }
-  .badge-2 { background: var(--db2-bg); color: var(--db2-c); }
+  .badge { display:inline-block; padding:2px 8px; border-radius:20px; font-size:10px; font-weight:700; letter-spacing:.04em; vertical-align:middle; }
+  .badge-1   { background:var(--db1-bg); color:var(--db1-c); }
+  .badge-2   { background:var(--db2-bg); color:var(--db2-c); }
+  .badge-adj { background:var(--adj-bg); color:var(--adj-c); border:1px solid var(--adj-border); }
 
-  /* ── Cuadro tag ──────────────────────────────────────────── */
-  .cuadro-tag {
-    display: inline-block;
-    padding: 1px 7px;
-    border-radius: 4px;
-    font-size: 10px;
-    font-weight: 600;
-    background: #f1f5f9;
-    color: #475569;
-    border: 1px solid #e2e8f0;
-    margin-right: 6px;
-    vertical-align: middle;
-  }
+  .cuadro-tag, .unidad-tag { display:inline-block; padding:1px 7px; border-radius:4px; font-size:10px; font-weight:600; background:#f1f5f9; color:#475569; border:1px solid #e2e8f0; margin-right:6px; vertical-align:middle; }
 
-  /* ── Descripción fuente ───────────────────────────────────── */
-  #fuente-desc {
-    display: none;
-    padding: 10px 14px;
-    background: var(--accent-lt);
-    border: 1px solid #bfdbfe;
-    border-radius: 7px;
-    font-size: 12px;
-    color: #1e3a8a;
-    margin-top: 12px;
-    line-height: 1.55;
-  }
+  #fuente-desc { display:none; padding:10px 14px; background:var(--accent-lt); border:1px solid #bfdbfe; border-radius:7px; font-size:12px; color:#1e3a8a; margin-top:12px; line-height:1.55; }
 
-  /* ── Status ──────────────────────────────────────────────── */
-  #status {
-    padding: 11px 15px;
-    border-radius: 7px;
-    font-size: 13px;
-    margin-bottom: 14px;
-    display: none;
-    line-height: 1.4;
-  }
-  #status.info    { background: #f0fdf4; color: #065f46; border: 1px solid #a7f3d0; display: block; }
-  #status.error   { background: #fef2f2; color: var(--danger); border: 1px solid #fecaca; display: block; }
-  #status.success { background: var(--ok-lt); color: var(--ok); border: 1px solid #a7f3d0; display: block; }
-  #status.warn    { background: var(--warn-lt); color: #92400e; border: 1px solid #fde68a; display: block; }
+  #status { padding:11px 15px; border-radius:7px; font-size:13px; margin-bottom:14px; display:none; line-height:1.4; }
+  #status.info    { background:#f0fdf4; color:#065f46; border:1px solid #a7f3d0; display:block; }
+  #status.error   { background:#fef2f2; color:var(--danger); border:1px solid #fecaca; display:block; }
+  #status.success { background:var(--ok-lt); color:var(--ok); border:1px solid #a7f3d0; display:block; }
+  #status.warn    { background:var(--warn-lt); color:#92400e; border:1px solid #fde68a; display:block; }
 
-  /* ── Meta strip ──────────────────────────────────────────── */
-  #meta-strip {
-    display: none;
-    flex-wrap: wrap;
-    gap: 24px;
-    padding: 13px 18px;
-    background: #f8f9ff;
-    border: 1px solid #c7d2fe;
-    border-radius: 9px;
-    margin-bottom: 14px;
-  }
-  .mi strong {
-    display: block;
-    font-size: 9px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: .08em;
-    color: #6366f1;
-    margin-bottom: 2px;
-  }
-  .mi span { font-size: 13px; }
+  #meta-strip { display:none; flex-wrap:wrap; gap:24px; padding:13px 18px; background:#f8f9ff; border:1px solid #c7d2fe; border-radius:9px; margin-bottom:14px; }
+  .mi strong { display:block; font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:#6366f1; margin-bottom:2px; }
+  .mi span { font-size:13px; }
 
-  /* ── Unidad tag ──────────────────────────────────────────── */
-  .unidad-tag {
-    display: inline-block;
-    padding: 1px 8px;
-    border-radius: 4px;
-    font-size: 10px;
-    font-weight: 600;
-    background: #f1f5f9;
-    color: #475569;
-    border: 1px solid #e2e8f0;
-    vertical-align: middle;
-  }
+  /* Panel ajuste */
+  #adj-panel { display:none; background:var(--surface); border:1px solid var(--adj-border); border-radius:10px; box-shadow:var(--shadow); padding:16px 20px; margin-bottom:14px; }
+  #adj-info { display:none; margin-top:10px; padding:9px 13px; background:var(--adj-lt); border:1px solid var(--adj-border); border-radius:7px; font-size:12px; color:var(--adj-c); line-height:1.5; }
 
-  /* ── Chart ───────────────────────────────────────────────── */
-  #chart-wrap { display: none; margin-bottom: 14px; }
-  #chart-wrap .card { padding: 16px; }
-  #chart-canvas { max-height: 320px; }
+  #adj-meta-strip { display:none; flex-wrap:wrap; gap:20px; padding:10px 16px; background:var(--adj-lt); border:1px solid var(--adj-border); border-radius:8px; margin-bottom:14px; }
+  #adj-meta-strip .mi strong { color:var(--adj-c); }
 
-  /* ── Table ───────────────────────────────────────────────── */
-  #results { display: none; }
-  .tbl-scroll { overflow-x: auto; }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13px;
-  }
-  thead th {
-    background: #f8fafc;
-    border-bottom: 2px solid var(--border);
-    padding: 9px 12px;
-    text-align: left;
-    font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: .07em;
-    color: var(--muted);
-    white-space: nowrap;
-  }
-  tbody td {
-    padding: 8px 12px;
-    border-bottom: 1px solid #f1f5f9;
-    vertical-align: middle;
-  }
-  tbody tr:nth-child(even) td { background: var(--row-alt); }
-  tbody tr:hover td { background: #f0f6ff; }
-  .num { text-align: right; font-variant-numeric: tabular-nums; }
-  .pos { color: #059669; font-weight: 600; }
-  .neg { color: var(--danger); font-weight: 600; }
-  .neutral { color: var(--muted); }
+  /* Chart */
+  #chart-wrap { display:none; margin-bottom:14px; }
+  #chart-wrap .card { padding:16px; }
+  #chart-canvas { max-height:340px; }
+  .chart-legend { display:flex; gap:18px; flex-wrap:wrap; margin-bottom:10px; font-size:12px; }
+  .legend-item { display:flex; align-items:center; gap:6px; }
+  .legend-swatch { width:28px; height:3px; border-radius:2px; flex-shrink:0; }
+  .legend-swatch.dashed { background:repeating-linear-gradient(90deg, var(--c,#ea580c) 0 5px, transparent 5px 8px); }
 
-  /* ── Toolbar results ─────────────────────────────────────── */
-  .results-toolbar {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 12px;
-    flex-wrap: wrap;
-  }
-  #count-lbl { font-size: 12px; color: var(--muted); margin-right: auto; }
+  /* Table */
+  #results { display:none; }
+  .tbl-scroll { overflow-x:auto; }
+  table { width:100%; border-collapse:collapse; font-size:13px; }
+  thead th { background:#f8fafc; border-bottom:2px solid var(--border); padding:9px 12px; text-align:left; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:var(--muted); white-space:nowrap; }
+  thead th.th-adj { color:var(--adj-c); background:var(--adj-lt); }
+  thead th.th-sep { background:var(--border); width:3px; padding:0; }
+  tbody td { padding:8px 12px; border-bottom:1px solid #f1f5f9; vertical-align:middle; }
+  tbody tr:nth-child(even) td { background:var(--row-alt); }
+  tbody tr:hover td { background:#f0f6ff; }
+  td.td-adj { background:var(--adj-lt) !important; }
+  tbody tr:hover td.td-adj { background:#fde8d0 !important; }
+  td.td-sep { background:var(--border) !important; padding:0; width:3px; }
+  .num { text-align:right; font-variant-numeric:tabular-nums; }
+  .pos { color:#059669; font-weight:600; }
+  .neg { color:var(--danger); font-weight:600; }
+  .neutral { color:var(--muted); }
 
-  /* ── Spinner ─────────────────────────────────────────────── */
-  .spinner {
-    width: 14px; height: 14px;
-    border: 2px solid rgba(255,255,255,.35);
-    border-top-color: #fff;
-    border-radius: 50%;
-    animation: spin .65s linear infinite;
-    display: inline-block;
-  }
-  @keyframes spin { to { transform: rotate(360deg); } }
+  .results-toolbar { display:flex; align-items:center; gap:10px; margin-bottom:12px; flex-wrap:wrap; }
+  #count-lbl { font-size:12px; color:var(--muted); margin-right:auto; }
 
-  /* ── Footer ──────────────────────────────────────────────── */
-  footer {
-    text-align: center;
-    padding: 24px 16px 32px;
-    font-size: 11px;
-    color: var(--muted);
-    line-height: 1.6;
-  }
-  footer a { color: var(--accent); text-decoration: none; }
-  footer a:hover { text-decoration: underline; }
+  .spinner { width:14px; height:14px; border:2px solid rgba(255,255,255,.35); border-top-color:#fff; border-radius:50%; animation:spin .65s linear infinite; display:inline-block; }
+  @keyframes spin { to { transform:rotate(360deg); } }
 
-  @media (max-width: 600px) {
-    header { padding: 0 14px; }
-    .header-stats { display: none; }
-    .main { padding: 14px 10px; }
-    .card { padding: 14px 14px; }
+  footer { text-align:center; padding:24px 16px 32px; font-size:11px; color:var(--muted); line-height:1.6; }
+  footer a { color:var(--accent); text-decoration:none; }
+  footer a:hover { text-decoration:underline; }
+
+  @media (max-width:600px) {
+    header { padding:0 14px; }
+    .header-stats { display:none; }
+    .main { padding:14px 10px; }
+    .card, #adj-panel { padding:14px 14px; }
   }
 </style>
 </head>
 <body>
 
-<!-- ── Header ──────────────────────────────────────────────────────────── -->
 <header>
   <div class="hdr-logo">📊</div>
   <div class="hdr-titles">
@@ -350,10 +158,8 @@
   <div class="header-stats" id="hdr-stats">Cargando…</div>
 </header>
 
-<!-- ── Main ────────────────────────────────────────────────────────────── -->
 <div class="main">
 
-  <!-- Pasos -->
   <div class="steps" id="steps-bar">
     <div class="step active" id="step-1"><div class="step-num">1</div><span>Cuadro</span></div>
     <div class="step-arrow">›</div>
@@ -366,72 +172,35 @@
     <div class="step" id="step-5"><div class="step-num">5</div><span>Resultado</span></div>
   </div>
 
-  <!-- Filtros -->
+  <!-- Filtros principales -->
   <div class="card">
     <div class="card-title">Selección de serie</div>
-
     <div class="row">
-
-      <!-- Paso 1: Cuadro/Fuente -->
       <div class="field" style="flex:2;min-width:260px;">
         <label>1 · Cuadro / Fuente</label>
-        <select id="sel-fuente">
-          <option value="">— Seleccionar cuadro —</option>
-        </select>
+        <select id="sel-fuente"><option value="">— Seleccionar cuadro —</option></select>
       </div>
-
-      <!-- Paso 2: Frecuencia -->
       <div class="field" style="min-width:150px;">
         <label>2 · Frecuencia</label>
-        <select id="sel-freq" disabled>
-          <option value="">— Seleccionar —</option>
-        </select>
+        <select id="sel-freq" disabled><option value="">— Seleccionar —</option></select>
       </div>
-
-      <!-- Paso 3: Serie -->
       <div class="field" style="flex:2;min-width:240px;">
         <label>3 · Serie</label>
-        <select id="sel-serie" disabled>
-          <option value="">— Seleccionar serie —</option>
-        </select>
+        <select id="sel-serie" disabled><option value="">— Seleccionar serie —</option></select>
       </div>
-
     </div>
-
-    <!-- Descripción de la fuente seleccionada -->
     <div id="fuente-desc"></div>
-
     <div class="row" style="margin-top:14px;">
-      <!-- Paso 4: Desde -->
-      <div class="field">
-        <label>4 · Desde</label>
-        <input type="date" id="d-desde" disabled>
-      </div>
-
-      <!-- Hasta -->
-      <div class="field">
-        <label>Hasta</label>
-        <input type="date" id="d-hasta" disabled>
-      </div>
-
-      <!-- Consultar -->
-      <div class="field">
-        <label>&nbsp;</label>
-        <button class="btn btn-primary" id="btn-ok" disabled>🔍 Consultar</button>
-      </div>
-
-      <!-- Reset -->
-      <div class="field">
-        <label>&nbsp;</label>
-        <button class="btn btn-ghost" id="btn-reset">↺ Limpiar</button>
-      </div>
+      <div class="field"><label>4 · Desde</label><input type="date" id="d-desde" disabled></div>
+      <div class="field"><label>Hasta</label><input type="date" id="d-hasta" disabled></div>
+      <div class="field"><label>&nbsp;</label><button class="btn btn-primary" id="btn-ok" disabled>🔍 Consultar</button></div>
+      <div class="field"><label>&nbsp;</label><button class="btn btn-ghost" id="btn-reset">↺ Limpiar</button></div>
     </div>
   </div>
 
-  <!-- Status -->
   <div id="status"></div>
 
-  <!-- Meta strip -->
+  <!-- Meta strip serie principal -->
   <div id="meta-strip">
     <div class="mi"><strong>Serie</strong><span id="m-nom">—</span></div>
     <div class="mi"><strong>Cuadro</strong><span id="m-cuadro">—</span></div>
@@ -441,14 +210,48 @@
     <div class="mi"><strong>Observaciones</strong><span id="m-n">—</span></div>
   </div>
 
+  <!-- Panel ajuste IPC -->
+  <div id="adj-panel">
+    <div class="card-title adj-title">🔄 Ajuste por índice de precios — deflactar serie</div>
+    <div class="row">
+      <div class="field" style="flex:2;min-width:240px;">
+        <label>Índice IPC para ajustar</label>
+        <select id="sel-ipc">
+          <option value="">— Sin ajuste (serie nominal) —</option>
+        </select>
+      </div>
+      <div class="field" style="min-width:190px;">
+        <label>Base del ajuste</label>
+        <select id="sel-base">
+          <option value="100">Índice base Dic-2016=100 (÷ IPC × 100)</option>
+          <option value="first">Primer período = 100</option>
+          <option value="last">Último período = 100</option>
+        </select>
+      </div>
+      <div class="field"><label>&nbsp;</label><button class="btn btn-adj" id="btn-adj" disabled>📐 Aplicar ajuste</button></div>
+      <div class="field"><label>&nbsp;</label><button class="btn btn-ghost" id="btn-adj-clear" disabled>✕ Quitar ajuste</button></div>
+    </div>
+    <div id="adj-info"></div>
+  </div>
+
+  <!-- Meta strip ajuste -->
+  <div id="adj-meta-strip">
+    <div class="mi"><strong>IPC utilizado</strong><span id="am-ipc">—</span></div>
+    <div class="mi"><strong>Frecuencia</strong><span id="am-freq">—</span></div>
+    <div class="mi"><strong>Cobertura IPC</strong><span id="am-rango">—</span></div>
+    <div class="mi"><strong>Obs. ajustadas</strong><span id="am-n">—</span></div>
+    <div class="mi"><strong>Fórmula</strong><span id="am-formula">—</span></div>
+  </div>
+
   <!-- Chart -->
   <div id="chart-wrap">
     <div class="card">
+      <div class="chart-legend" id="chart-legend"></div>
       <canvas id="chart-canvas"></canvas>
     </div>
   </div>
 
-  <!-- Results table -->
+  <!-- Tabla resultados -->
   <div id="results">
     <div class="card">
       <div class="results-toolbar">
@@ -457,36 +260,46 @@
         <button class="btn btn-success" id="btn-csv">⬇ Exportar CSV</button>
       </div>
       <div class="tbl-scroll">
-        <table>
-          <thead>
-            <tr>
-              <th>Período</th>
-              <th class="num">Valor</th>
-              <th class="num">Var. % período anterior</th>
-            </tr>
-          </thead>
+        <table id="main-table">
+          <thead id="tbl-head"></thead>
           <tbody id="tbl-body"></tbody>
         </table>
       </div>
     </div>
   </div>
 
-</div><!-- /main -->
+</div>
 
-<!-- ── Footer ──────────────────────────────────────────────────────────── -->
 <footer>
   <strong>econsur · Precios IPC Argentina</strong><br>
   Datos: <a href="https://www.indec.gob.ar" target="_blank" rel="noopener">INDEC</a>
   — Apéndice Estadístico, Capítulo 4: Precios &nbsp;·&nbsp;
-  Actualización manual via GitHub &nbsp;·&nbsp;
-  Backend: FastAPI + SQLite &nbsp;·&nbsp; Deploy: Render<br>
-  <span style="opacity:.6">Las series se actualizan manualmente a partir de las publicaciones oficiales del INDEC.</span>
+  Actualización manual via GitHub &nbsp;·&nbsp; Deploy: Render<br>
+  <span style="opacity:.6">Las series se actualizan manualmente a partir de publicaciones oficiales del INDEC.</span>
 </footer>
 
 <script>
 'use strict';
 
-// ── Helpers ───────────────────────────────────────────────────────────────
+/* ── Constantes ─────────────────────────────────────────────────────────── */
+const IPC_FUENTE = '4.1.1 IPC NG';
+const IPC_SERIES = [
+  { value:'IPC Nivel General - NACIONAL',   label:'Nacional' },
+  { value:'IPC Nivel General - GBA',        label:'GBA' },
+  { value:'IPC Nivel General - PAMPEANA',   label:'Pampeana' },
+  { value:'IPC Nivel General - NOA',        label:'NOA' },
+  { value:'IPC Nivel General - NEA',        label:'NEA' },
+  { value:'IPC Nivel General - CUYO',       label:'Cuyo' },
+  { value:'IPC Nivel General - PATAGONIA',  label:'Patagonia' },
+];
+
+const DB_COLORS = {
+  1: { badge:'badge-1', label:'IPC Nacional',      line:'#1d4ed8', fill:'rgba(29,78,216,.08)'  },
+  2: { badge:'badge-2', label:'IPC GBA / Índices', line:'#7e22ce', fill:'rgba(126,34,206,.08)' },
+};
+const ADJ_COLOR = { line:'#ea580c', fill:'rgba(234,88,12,.07)' };
+
+/* ── Helpers ────────────────────────────────────────────────────────────── */
 const g   = id => document.getElementById(id);
 const api = async url => {
   const r = await fetch(url);
@@ -497,346 +310,448 @@ const api = async url => {
   }
   return r.json();
 };
-
-const fmt = (v, dec = 2) =>
+const fmt = (v, dec=2) =>
   v == null ? '—' :
-  Number(v).toLocaleString('es-AR', { minimumFractionDigits: dec, maximumFractionDigits: dec });
-
-function st(msg, cls) {
-  const el = g('status');
-  el.className = cls || '';
-  el.textContent = msg;
-  if (!cls) el.style.display = 'none';
+  Number(v).toLocaleString('es-AR',{minimumFractionDigits:dec,maximumFractionDigits:dec});
+function st(msg,cls){
+  const el=g('status'); el.className=cls||''; el.textContent=msg;
+  if(!cls) el.style.display='none';
 }
+function calcPct(prev,curr){ return (prev==null||prev===0||curr==null)?null:((curr-prev)/Math.abs(prev))*100; }
+function pctClass(p){ return p==null?'neutral':p>0?'pos':p<0?'neg':'neutral'; }
+function fmtPct(p){ return p==null?'—':(p>0?'+':'')+fmt(p,2)+' %'; }
 
-// ── DB colors ─────────────────────────────────────────────────────────────
-const DB_COLORS = {
-  1: { badge: 'badge-1', label: 'IPC Nacional', line: '#1d4ed8', fill: 'rgba(29,78,216,.08)' },
-  2: { badge: 'badge-2', label: 'IPC GBA / Índices', line: '#7e22ce', fill: 'rgba(126,34,206,.08)' },
-};
-
-// ── State ─────────────────────────────────────────────────────────────────
+/* ── Estado ─────────────────────────────────────────────────────────────── */
 const S = {
-  fuente: '', frecuencia: '', serie: '',
-  dbNum: null, descMap: {}, cuadroMap: {}, result: null,
-  chart: null, chartOn: false,
+  fuente:'', frecuencia:'', serie:'', dbNum:null,
+  descMap:{}, cuadroMap:{},
+  result:null, ipcData:null, ipcNombre:'', adjResult:null,
+  chart:null, chartOn:false,
 };
 
-// ── Steps ──────────────────────────────────────────────────────────────────
-function setStep(n) {
-  [1,2,3,4,5].forEach(i => {
-    const el = g(`step-${i}`);
-    el.classList.remove('active', 'done');
-    if (i < n)  el.classList.add('done');
-    if (i === n) el.classList.add('active');
+/* ── Steps ──────────────────────────────────────────────────────────────── */
+function setStep(n){
+  [1,2,3,4,5].forEach(i=>{
+    const el=g(`step-${i}`);
+    el.classList.remove('active','done');
+    if(i<n)  el.classList.add('done');
+    if(i===n)el.classList.add('active');
   });
 }
 
-// ── Reset ──────────────────────────────────────────────────────────────────
-function reset(from) {
-  if (from <= 1) {
-    g('sel-freq').innerHTML  = '<option value="">— Seleccionar —</option>';
-    g('sel-freq').disabled   = true;
-  }
-  if (from <= 2) {
-    g('sel-serie').innerHTML = '<option value="">— Seleccionar serie —</option>';
-    g('sel-serie').disabled  = true;
-  }
-  if (from <= 3) {
-    g('d-desde').disabled = g('d-hasta').disabled = true;
-    g('d-desde').value    = g('d-hasta').value    = '';
-    g('btn-ok').disabled  = true;
-  }
-  g('meta-strip').style.display = 'none';
-  g('chart-wrap').style.display = 'none';
-  g('results').style.display    = 'none';
-  if (S.chart) { S.chart.destroy(); S.chart = null; }
-  S.chartOn = false;
-  S.result  = null;
+/* ── Reset ──────────────────────────────────────────────────────────────── */
+function reset(from){
+  if(from<=1){ g('sel-freq').innerHTML='<option value="">— Seleccionar —</option>'; g('sel-freq').disabled=true; }
+  if(from<=2){ g('sel-serie').innerHTML='<option value="">— Seleccionar serie —</option>'; g('sel-serie').disabled=true; }
+  if(from<=3){ g('d-desde').disabled=g('d-hasta').disabled=true; g('d-desde').value=g('d-hasta').value=''; g('btn-ok').disabled=true; }
+  resetAdj();
+  g('adj-panel').style.display='none';
+  g('meta-strip').style.display='none';
+  g('chart-wrap').style.display='none';
+  g('results').style.display='none';
+  if(S.chart){S.chart.destroy();S.chart=null;}
+  S.chartOn=false; S.result=null;
 }
 
-// ── Init ───────────────────────────────────────────────────────────────────
-async function init() {
-  try {
-    // Health check header
-    const h = await api('/api/health');
-    g('hdr-stats').innerHTML =
-      `<span class="hdr-dot ${h.db1_ok ? 'ok' : 'err'}"></span>IPC Nacional &nbsp;` +
-      `<span class="hdr-dot ${h.db2_ok ? 'ok' : 'err'}"></span>IPC GBA / Índices`;
+function resetAdj(){
+  S.ipcData=null; S.ipcNombre=''; S.adjResult=null;
+  g('sel-ipc').value='';
+  g('adj-info').style.display='none';
+  g('adj-meta-strip').style.display='none';
+  g('btn-adj').disabled=true;
+  g('btn-adj-clear').disabled=true;
+  if(S.chart){S.chart.destroy();S.chart=null;}
+  S.chartOn=false;
+  g('chart-wrap').style.display='none';
+  g('btn-chart').textContent='📈 Ver gráfico';
+}
 
-    // Load fuentes catalog
-    const fuentes = await api('/api/fuentes');
-    S.descMap  = Object.fromEntries(fuentes.map(f => [f.fuente, f.descripcion]));
-    S.cuadroMap= Object.fromEntries(fuentes.map(f => [f.fuente, f.cuadro]));
+/* ── Init ───────────────────────────────────────────────────────────────── */
+async function init(){
+  try{
+    const h=await api('/api/health');
+    g('hdr-stats').innerHTML=
+      `<span class="hdr-dot ${h.db1_ok?'ok':'err'}"></span>IPC Nacional &nbsp;`+
+      `<span class="hdr-dot ${h.db2_ok?'ok':'err'}"></span>IPC GBA / Índices`;
 
-    const sf = g('sel-fuente');
-    const groups = { 1: fuentes.filter(f => f.db_num === 1),
-                     2: fuentes.filter(f => f.db_num === 2) };
-    const groupLabels = {
-      1: '── IPC Nacional · Regiones (4.1.x)',
-      2: '── IPC GBA · Índices de Precios (4.2.x – 4.6)',
-    };
+    const fuentes=await api('/api/fuentes');
+    S.descMap  =Object.fromEntries(fuentes.map(f=>[f.fuente,f.descripcion]));
+    S.cuadroMap=Object.fromEntries(fuentes.map(f=>[f.fuente,f.cuadro]));
 
-    [1, 2].forEach(db => {
-      if (!groups[db].length) return;
-      const sep = document.createElement('option');
-      sep.disabled = true;
-      sep.textContent = groupLabels[db];
-      sf.appendChild(sep);
-      groups[db].forEach(f => {
-        const o = document.createElement('option');
-        o.value = f.fuente;
-        o.dataset.db = f.db_num;
-        o.textContent = `${f.cuadro} · ${f.fuente_nombre}`;
-        sf.appendChild(o);
+    const sf=g('sel-fuente');
+    const groups={1:fuentes.filter(f=>f.db_num===1),2:fuentes.filter(f=>f.db_num===2)};
+    const groupLabels={1:'── IPC Nacional · Regiones (4.1.x)',2:'── IPC GBA · Índices de Precios (4.2.x – 4.6)'};
+    [1,2].forEach(db=>{
+      if(!groups[db].length)return;
+      const sep=document.createElement('option'); sep.disabled=true;
+      sep.textContent=groupLabels[db]; sf.appendChild(sep);
+      groups[db].forEach(f=>{
+        const o=document.createElement('option');
+        o.value=f.fuente; o.dataset.db=f.db_num;
+        o.textContent=`${f.cuadro} · ${f.fuente_nombre}`; sf.appendChild(o);
       });
     });
-
     setStep(1);
-  } catch(e) {
-    st('⚠ Error al iniciar la aplicación: ' + e.message, 'error');
-  }
+  }catch(e){ st('⚠ Error al iniciar la aplicación: '+e.message,'error'); }
 }
 
-// ── Paso 1 → frecuencias ───────────────────────────────────────────────────
-g('sel-fuente').addEventListener('change', async () => {
-  reset(1);
-  g('fuente-desc').style.display = 'none';
-  const fuente = g('sel-fuente').value;
-  if (!fuente) return;
-  S.fuente = fuente;
-  S.dbNum  = Number(g('sel-fuente').selectedOptions[0].dataset.db);
-
-  const desc = S.descMap[fuente];
-  if (desc) {
-    g('fuente-desc').innerHTML =
-      `<span class="cuadro-tag">${S.cuadroMap[fuente] || ''}</span>📋 ${desc}`;
-    g('fuente-desc').style.display = 'block';
-  }
-
-  st('Cargando frecuencias…', 'info');
-  try {
-    const freqs = await api(`/api/frecuencias?fuente=${encodeURIComponent(fuente)}`);
-    const sfq = g('sel-freq');
-    sfq.innerHTML = '<option value="">— Seleccionar —</option>';
-    freqs.forEach(f => {
-      const o = document.createElement('option');
-      o.value = f; o.textContent = f;
-      sfq.appendChild(o);
-    });
-    sfq.disabled = false;
-    st('', '');
-    setStep(2);
-  } catch(e) { st(e.message, 'error'); }
+/* ── Paso 1 ─────────────────────────────────────────────────────────────── */
+g('sel-fuente').addEventListener('change',async()=>{
+  reset(1); g('fuente-desc').style.display='none';
+  const fuente=g('sel-fuente').value; if(!fuente)return;
+  S.fuente=fuente; S.dbNum=Number(g('sel-fuente').selectedOptions[0].dataset.db);
+  const desc=S.descMap[fuente];
+  if(desc){g('fuente-desc').innerHTML=`<span class="cuadro-tag">${S.cuadroMap[fuente]||''}</span>📋 ${desc}`;g('fuente-desc').style.display='block';}
+  st('Cargando frecuencias…','info');
+  try{
+    const freqs=await api(`/api/frecuencias?fuente=${encodeURIComponent(fuente)}`);
+    const sfq=g('sel-freq'); sfq.innerHTML='<option value="">— Seleccionar —</option>';
+    freqs.forEach(f=>{const o=document.createElement('option');o.value=f;o.textContent=f;sfq.appendChild(o);});
+    sfq.disabled=false; st('',''); setStep(2);
+  }catch(e){st(e.message,'error');}
 });
 
-// ── Paso 2 → series ────────────────────────────────────────────────────────
-g('sel-freq').addEventListener('change', async () => {
+/* ── Paso 2 ─────────────────────────────────────────────────────────────── */
+g('sel-freq').addEventListener('change',async()=>{
   reset(2);
-  const freq = g('sel-freq').value;
-  if (!freq) return;
-  S.frecuencia = freq;
-
-  st('Cargando series…', 'info');
-  try {
-    const series = await api(
-      `/api/series?fuente=${encodeURIComponent(S.fuente)}&frecuencia=${encodeURIComponent(freq)}`
-    );
-    const ss = g('sel-serie');
-    ss.innerHTML = '<option value="">— Seleccionar serie —</option>';
-    series.forEach(s => {
-      const o = document.createElement('option');
-      o.value = s.serie_nombre; o.textContent = s.serie_nombre;
-      ss.appendChild(o);
-    });
-    ss.disabled = false;
-    st(`${series.length} serie(s) disponibles.`, 'success');
-    setStep(3);
-  } catch(e) { st(e.message, 'error'); }
+  const freq=g('sel-freq').value; if(!freq)return;
+  S.frecuencia=freq;
+  st('Cargando series…','info');
+  try{
+    const series=await api(`/api/series?fuente=${encodeURIComponent(S.fuente)}&frecuencia=${encodeURIComponent(freq)}`);
+    const ss=g('sel-serie'); ss.innerHTML='<option value="">— Seleccionar serie —</option>';
+    series.forEach(s=>{const o=document.createElement('option');o.value=s.serie_nombre;o.textContent=s.serie_nombre;ss.appendChild(o);});
+    ss.disabled=false; st(`${series.length} serie(s) disponibles.`,'success'); setStep(3);
+  }catch(e){st(e.message,'error');}
 });
 
-// ── Paso 3 → períodos ──────────────────────────────────────────────────────
-g('sel-serie').addEventListener('change', async () => {
+/* ── Paso 3 ─────────────────────────────────────────────────────────────── */
+g('sel-serie').addEventListener('change',async()=>{
   reset(3);
-  const serie = g('sel-serie').value;
-  if (!serie) return;
-  S.serie = serie;
-
-  st('Cargando rango de períodos…', 'info');
-  try {
-    const r = await api(
-      `/api/periodos?fuente=${encodeURIComponent(S.fuente)}` +
-      `&frecuencia=${encodeURIComponent(S.frecuencia)}` +
-      `&serie=${encodeURIComponent(serie)}`
-    );
-    if (!r.desde) { st('No se encontraron datos para esta serie.', 'error'); return; }
-    const d1 = g('d-desde'), d2 = g('d-hasta');
-    d1.value = d1.min = d2.min = r.desde;
-    d2.value = d1.max = d2.max = r.hasta;
-    d1.disabled = d2.disabled = false;
-    g('btn-ok').disabled = false;
-    st(`✓ Rango disponible: ${r.desde} → ${r.hasta}`, 'success');
-    setStep(4);
-  } catch(e) { st(e.message, 'error'); }
+  const serie=g('sel-serie').value; if(!serie)return;
+  S.serie=serie;
+  st('Cargando rango de períodos…','info');
+  try{
+    const r=await api(`/api/periodos?fuente=${encodeURIComponent(S.fuente)}&frecuencia=${encodeURIComponent(S.frecuencia)}&serie=${encodeURIComponent(serie)}`);
+    if(!r.desde){st('No se encontraron datos para esta serie.','error');return;}
+    const d1=g('d-desde'),d2=g('d-hasta');
+    d1.value=d1.min=d2.min=r.desde; d2.value=d1.max=d2.max=r.hasta;
+    d1.disabled=d2.disabled=false; g('btn-ok').disabled=false;
+    st(`✓ Rango disponible: ${r.desde} → ${r.hasta}`,'success'); setStep(4);
+  }catch(e){st(e.message,'error');}
 });
 
-// ── Consultar ───────────────────────────────────────────────────────────────
-g('btn-ok').addEventListener('click', async () => {
-  const desde = g('d-desde').value, hasta = g('d-hasta').value;
-  if (!desde || !hasta)  { st('Ingresá fechas válidas.', 'error'); return; }
-  if (desde > hasta)     { st('"Desde" debe ser anterior a "Hasta".', 'error'); return; }
-
-  st('Consultando…', 'info');
-  g('btn-ok').disabled = true;
-  g('btn-ok').innerHTML = '<span class="spinner"></span> Consultando…';
-
-  try {
-    const url =
-      `api/datos?fuente=${encodeURIComponent(S.fuente)}` +
-      `&frecuencia=${encodeURIComponent(S.frecuencia)}` +
-      `&serie=${encodeURIComponent(S.serie)}` +
-      `&desde=${desde}&hasta=${hasta}`;
-    S.result = await api(url);
+/* ── Consultar ──────────────────────────────────────────────────────────── */
+g('btn-ok').addEventListener('click',async()=>{
+  const desde=g('d-desde').value,hasta=g('d-hasta').value;
+  if(!desde||!hasta){st('Ingresá fechas válidas.','error');return;}
+  if(desde>hasta){st('"Desde" debe ser anterior a "Hasta".','error');return;}
+  st('Consultando…','info');
+  g('btn-ok').disabled=true; g('btn-ok').innerHTML='<span class="spinner"></span> Consultando…';
+  try{
+    S.result=await api(`api/datos?fuente=${encodeURIComponent(S.fuente)}&frecuencia=${encodeURIComponent(S.frecuencia)}&serie=${encodeURIComponent(S.serie)}&desde=${desde}&hasta=${hasta}`);
     renderResult(S.result);
-    st('', '');
-    setStep(5);
-  } catch(e) {
-    st('Error en la consulta: ' + e.message, 'error');
-  } finally {
-    g('btn-ok').disabled = false;
-    g('btn-ok').innerHTML = '🔍 Consultar';
+    await loadAdjPanel();
+    st('',''); setStep(5);
+  }catch(e){st('Error en la consulta: '+e.message,'error');}
+  finally{g('btn-ok').disabled=false;g('btn-ok').innerHTML='🔍 Consultar';}
+});
+
+/* ── Cargar panel de ajuste ─────────────────────────────────────────────── */
+async function loadAdjPanel(){
+  const panel=g('adj-panel');
+  const selIpc=g('sel-ipc');
+  selIpc.innerHTML='<option value="">— Sin ajuste (serie nominal) —</option>';
+  g('btn-adj').disabled=true; g('btn-adj-clear').disabled=true;
+  g('adj-info').style.display='none'; g('adj-meta-strip').style.display='none';
+
+  const freq=S.frecuencia;
+  try{
+    const series=await api(`/api/series?fuente=${encodeURIComponent(IPC_FUENTE)}&frecuencia=${encodeURIComponent(freq)}`);
+    const serieNames=new Set(series.map(s=>s.serie_nombre));
+    let added=0;
+    IPC_SERIES.forEach(({value,label})=>{
+      if(serieNames.has(value)){
+        const o=document.createElement('option');
+        o.value=value; o.textContent=`IPC Nivel General — ${label}`;
+        selIpc.appendChild(o); added++;
+      }
+    });
+    if(added>0){
+      panel.style.display='block';
+      g('adj-info').innerHTML=
+        `ℹ️ Podés deflactar la serie seleccionando uno de los IPC disponibles en frecuencia <strong>${freq}</strong>. `+
+        `La serie ajustada muestra la evolución a precios constantes según la base del índice elegido.`;
+      g('adj-info').style.display='block';
+    } else { panel.style.display='none'; }
+  }catch{ panel.style.display='none'; }
+}
+
+/* ── Habilitar/deshabilitar btn-adj ─────────────────────────────────────── */
+g('sel-ipc').addEventListener('change',()=>{
+  const val=g('sel-ipc').value;
+  g('btn-adj').disabled=!val;
+  if(!val){
+    S.ipcData=null;S.ipcNombre='';S.adjResult=null;
+    g('adj-meta-strip').style.display='none';
+    g('btn-adj-clear').disabled=true;
+    if(S.result) renderTable(S.result.datos,S.result.meta,null);
+    if(S.chartOn&&S.result) buildChart(S.result,null);
   }
 });
 
-// ── Reset button ────────────────────────────────────────────────────────────
-g('btn-reset').addEventListener('click', () => {
-  g('sel-fuente').value = '';
-  g('fuente-desc').style.display = 'none';
-  S.fuente = S.frecuencia = S.serie = '';
-  S.dbNum = null;
-  reset(1);
-  st('', '');
-  setStep(1);
+/* ── Aplicar ajuste ─────────────────────────────────────────────────────── */
+g('btn-adj').addEventListener('click',async()=>{
+  const ipcNombre=g('sel-ipc').value;
+  if(!ipcNombre||!S.result)return;
+  const desde=g('d-desde').value,hasta=g('d-hasta').value;
+  const freq=S.frecuencia;
+  g('btn-adj').disabled=true; g('btn-adj').innerHTML='<span class="spinner"></span> Aplicando…';
+  try{
+    const ipcResp=await api(
+      `/api/datos?fuente=${encodeURIComponent(IPC_FUENTE)}`+
+      `&frecuencia=${encodeURIComponent(freq)}`+
+      `&serie=${encodeURIComponent(ipcNombre)}`+
+      `&desde=${desde}&hasta=${hasta}`
+    );
+    if(!ipcResp.datos?.length){st(`No hay datos IPC "${ipcNombre}" para el período seleccionado.`,'warn');return;}
+
+    S.ipcData  =new Map(ipcResp.datos.map(d=>[d.periodo,d.valor]));
+    S.ipcNombre=ipcNombre;
+
+    const baseMode=g('sel-base').value;
+    S.adjResult=computeAdj(S.result.datos,S.ipcData,baseMode);
+
+    // Meta strip ajuste
+    const ipcPs=ipcResp.datos.map(d=>d.periodo);
+    const labelCorto=IPC_SERIES.find(s=>s.value===ipcNombre)?.label||ipcNombre;
+    g('am-ipc').textContent   =`IPC Nivel General — ${labelCorto}`;
+    g('am-freq').textContent  =freq;
+    g('am-rango').textContent =`${ipcPs.at(0)} → ${ipcPs.at(-1)}`;
+    g('am-n').textContent     =S.adjResult.filter(d=>d.valorAdj!=null).length;
+    const formulas={
+      '100':'valor_ajustado = (valor ÷ IPC) × 100',
+      'first':'valor_ajustado = (valor ÷ IPC) × IPC_primer_período',
+      'last': 'valor_ajustado = (valor ÷ IPC) × IPC_último_período',
+    };
+    g('am-formula').textContent=formulas[baseMode]||'—';
+    g('adj-meta-strip').style.display='flex';
+
+    renderTable(S.result.datos,S.result.meta,S.adjResult);
+    g('btn-adj-clear').disabled=false;
+    if(S.chartOn) buildChart(S.result,S.adjResult);
+    st('','');
+  }catch(e){st('Error al obtener datos IPC: '+e.message,'error');}
+  finally{g('btn-adj').disabled=false;g('btn-adj').innerHTML='📐 Aplicar ajuste';}
 });
 
-// ── Render tabla ─────────────────────────────────────────────────────────────
-function renderResult({ datos, meta }) {
-  if (!datos?.length) { st('Sin datos para el período seleccionado.', 'warn'); return; }
+/* ── Quitar ajuste ──────────────────────────────────────────────────────── */
+g('btn-adj-clear').addEventListener('click',()=>{
+  S.ipcData=null;S.ipcNombre='';S.adjResult=null;
+  g('sel-ipc').value=''; g('btn-adj').disabled=true; g('btn-adj-clear').disabled=true;
+  g('adj-meta-strip').style.display='none';
+  if(S.result){renderTable(S.result.datos,S.result.meta,null);}
+  if(S.chartOn&&S.result) buildChart(S.result,null);
+});
 
-  const col = DB_COLORS[meta.db_num] || DB_COLORS[1];
+/* ── Cálculo del ajuste ─────────────────────────────────────────────────── */
+function computeAdj(datos,ipcMap,baseMode){
+  let baseFactor=100;
+  if(baseMode==='first'){
+    const f=datos.find(d=>ipcMap.has(d.periodo));
+    baseFactor=f?ipcMap.get(f.periodo):100;
+  }else if(baseMode==='last'){
+    const f=[...datos].reverse().find(d=>ipcMap.has(d.periodo));
+    baseFactor=f?ipcMap.get(f.periodo):100;
+  }
+  return datos.map(d=>{
+    const ipcVal=ipcMap.get(d.periodo);
+    const valorAdj=(ipcVal!=null&&ipcVal!==0&&d.valor!=null)?(d.valor/ipcVal)*baseFactor:null;
+    return{...d,ipcVal,valorAdj};
+  });
+}
 
-  // Meta strip
-  g('m-nom').textContent    = meta.serie_nombre || '—';
-  g('m-cuadro').innerHTML   =
-    `<span class="cuadro-tag">${meta.cuadro || ''}</span>${meta.nombre_cuadro || '—'}`;
-  g('m-freq').textContent   = meta.frecuencia || '—';
-  g('m-unidad').innerHTML   = `<span class="unidad-tag">${meta.unidad || '—'}</span>`;
-  g('m-db').innerHTML       = `<span class="badge ${col.badge}">${col.label}</span>`;
-  g('m-n').textContent      = meta.total_registros;
-  g('meta-strip').style.display = 'flex';
+/* ── Render resultado principal ─────────────────────────────────────────── */
+function renderResult({datos,meta}){
+  const col=DB_COLORS[meta.db_num]||DB_COLORS[1];
+  g('m-nom').textContent =meta.serie_nombre||'—';
+  g('m-cuadro').innerHTML=`<span class="cuadro-tag">${meta.cuadro||''}</span>${meta.nombre_cuadro||'—'}`;
+  g('m-freq').textContent=meta.frecuencia||'—';
+  g('m-unidad').innerHTML=`<span class="unidad-tag">${meta.unidad||'—'}</span>`;
+  g('m-db').innerHTML    =`<span class="badge ${col.badge}">${col.label}</span>`;
+  g('m-n').textContent   =meta.total_registros;
+  g('meta-strip').style.display='flex';
+  renderTable(datos,meta,null);
+  g('count-lbl').textContent=`${datos.length} observaciones`;
+  S.chartOn=false; g('chart-wrap').style.display='none';
+  g('btn-chart').textContent='📈 Ver gráfico'; g('results').style.display='block';
+}
 
-  // Tabla
-  const tbody = g('tbl-body');
-  tbody.innerHTML = '';
-  datos.forEach((row, i) => {
-    const prev   = i > 0 ? datos[i - 1].valor : null;
-    const pct    = (prev != null && prev !== 0 && row.valor != null)
-                   ? ((row.valor - prev) / Math.abs(prev)) * 100 : null;
-    const cls    = pct == null ? 'neutral' : pct > 0 ? 'pos' : pct < 0 ? 'neg' : 'neutral';
-    const pctStr = pct == null ? '—' : (pct > 0 ? '+' : '') + fmt(pct, 2) + ' %';
-    const tr = document.createElement('tr');
-    tr.innerHTML =
-      `<td>${row.periodo || '—'}</td>` +
-      `<td class="num">${fmt(row.valor)}</td>` +
-      `<td class="num ${cls}">${pctStr}</td>`;
+/* ── Render tabla ───────────────────────────────────────────────────────── */
+function renderTable(datos,meta,adjDatos){
+  const hasAdj=adjDatos&&adjDatos.some(d=>d.valorAdj!=null);
+  const labelCorto=S.ipcNombre?IPC_SERIES.find(s=>s.value===S.ipcNombre)?.label||'IPC':'IPC';
+
+  // Encabezado
+  g('tbl-head').innerHTML = hasAdj
+    ? `<tr>
+        <th>Período</th>
+        <th class="num">Valor original</th>
+        <th class="num">Var. % orig.</th>
+        <th class="th-sep"></th>
+        <th class="num th-adj">IPC ${labelCorto}</th>
+        <th class="num th-adj">Valor ajustado</th>
+        <th class="num th-adj">Var. % ajust.</th>
+       </tr>`
+    : `<tr>
+        <th>Período</th>
+        <th class="num">Valor</th>
+        <th class="num">Var. % período anterior</th>
+       </tr>`;
+
+  // Filas
+  const tbody=g('tbl-body'); tbody.innerHTML='';
+  const srcDatos=adjDatos||datos;
+  srcDatos.forEach((row,i)=>{
+    const pctOrig=calcPct(i>0?datos[i-1].valor:null,row.valor);
+    const tr=document.createElement('tr');
+    if(hasAdj){
+      const pctAdj=calcPct(i>0?adjDatos[i-1].valorAdj:null,row.valorAdj);
+      tr.innerHTML=
+        `<td>${row.periodo||'—'}</td>`+
+        `<td class="num">${fmt(row.valor)}</td>`+
+        `<td class="num ${pctClass(pctOrig)}">${fmtPct(pctOrig)}</td>`+
+        `<td class="td-sep"></td>`+
+        `<td class="num td-adj">${row.ipcVal!=null?fmt(row.ipcVal):'—'}</td>`+
+        `<td class="num td-adj">${row.valorAdj!=null?fmt(row.valorAdj):'—'}</td>`+
+        `<td class="num td-adj ${pctClass(pctAdj)}">${fmtPct(pctAdj)}</td>`;
+    }else{
+      tr.innerHTML=
+        `<td>${row.periodo||'—'}</td>`+
+        `<td class="num">${fmt(row.valor)}</td>`+
+        `<td class="num ${pctClass(pctOrig)}">${fmtPct(pctOrig)}</td>`;
+    }
     tbody.appendChild(tr);
   });
-
-  g('count-lbl').textContent = `${datos.length} observaciones`;
-  S.chartOn = false;
-  g('chart-wrap').style.display = 'none';
-  g('btn-chart').textContent = '📈 Ver gráfico';
-  g('results').style.display = 'block';
+  g('count-lbl').textContent=`${datos.length} observaciones`+
+    (hasAdj?` · ${adjDatos.filter(d=>d.valorAdj!=null).length} ajustadas`:'');
 }
 
-// ── Gráfico ──────────────────────────────────────────────────────────────────
-g('btn-chart').addEventListener('click', () => {
-  if (!S.result) return;
-  S.chartOn = !S.chartOn;
-  g('chart-wrap').style.display = S.chartOn ? 'block' : 'none';
-  g('btn-chart').textContent = S.chartOn ? '📋 Ocultar gráfico' : '📈 Ver gráfico';
-  if (S.chartOn) buildChart(S.result);
+/* ── Gráfico ────────────────────────────────────────────────────────────── */
+g('btn-chart').addEventListener('click',()=>{
+  if(!S.result)return;
+  S.chartOn=!S.chartOn;
+  g('chart-wrap').style.display=S.chartOn?'block':'none';
+  g('btn-chart').textContent=S.chartOn?'📋 Ocultar gráfico':'📈 Ver gráfico';
+  if(S.chartOn) buildChart(S.result,S.adjResult);
 });
 
-function buildChart({ datos, meta }) {
-  if (S.chart) { S.chart.destroy(); S.chart = null; }
-  const ctx = g('chart-canvas').getContext('2d');
-  const col = DB_COLORS[meta.db_num] || DB_COLORS[1];
+function buildChart({datos,meta},adjDatos){
+  if(S.chart){S.chart.destroy();S.chart=null;}
+  const ctx=g('chart-canvas').getContext('2d');
+  const col=DB_COLORS[meta.db_num]||DB_COLORS[1];
+  const hasAdj=adjDatos&&adjDatos.some(d=>d.valorAdj!=null);
+  const labelCorto=S.ipcNombre?IPC_SERIES.find(s=>s.value===S.ipcNombre)?.label||'IPC':'IPC';
 
-  const hasNeg = datos.some(d => d.valor < 0);
-  const pointColors = datos.map(d =>
-    d.valor >= 0 ? col.line : 'rgba(185,28,28,.8)'
-  );
+  const datasets=[{
+    label:meta.serie_nombre+' (original)',
+    data:datos.map(d=>d.valor),
+    borderColor:col.line, backgroundColor:col.fill,
+    borderWidth:2, pointRadius:datos.length>120?0:3, pointHoverRadius:5,
+    tension:0.25, fill:!hasAdj, yAxisID:'y',
+  }];
 
-  S.chart = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels:   datos.map(d => d.periodo || ''),
-      datasets: [{
-        label:               meta.serie_nombre,
-        data:                datos.map(d => d.valor),
-        borderColor:         col.line,
-        backgroundColor:     col.fill,
-        pointBackgroundColor: hasNeg ? pointColors : col.line,
-        borderWidth:         2,
-        pointRadius:         datos.length > 120 ? 0 : 3,
-        pointHoverRadius:    5,
-        tension:             0.25,
-        fill:                true,
-      }]
-    },
-    options: {
-      responsive: true,
-      interaction: { mode: 'index', intersect: false },
-      plugins: {
-        legend: { display: false },
-        tooltip: {
-          callbacks: {
-            title: items => items[0].label,
-            label: c => `${meta.serie_nombre}: ${fmt(c.parsed.y)}`,
-            afterLabel: c => meta.unidad ? `Unidad: ${meta.unidad}` : '',
-          }
-        }
+  if(hasAdj){
+    datasets.push({
+      label:`${meta.serie_nombre} — ajustado por IPC ${labelCorto}`,
+      data:adjDatos.map(d=>d.valorAdj),
+      borderColor:ADJ_COLOR.line, backgroundColor:ADJ_COLOR.fill,
+      borderWidth:2, borderDash:[5,3],
+      pointRadius:datos.length>120?0:3, pointHoverRadius:5,
+      tension:0.25, fill:false, yAxisID:'y2',
+    });
+  }
+
+  // Leyenda manual
+  const legend=g('chart-legend'); legend.innerHTML='';
+  [{color:col.line,label:'Serie original',dash:false},
+   ...(hasAdj?[{color:ADJ_COLOR.line,label:`Ajustada — IPC ${labelCorto}`,dash:true}]:[])
+  ].forEach(({color,label,dash})=>{
+    const d=document.createElement('div'); d.className='legend-item';
+    d.innerHTML=
+      `<div class="legend-swatch${dash?' dashed':''}" style="background:${dash?'none':color};--c:${color}"></div>`+
+      `<span>${label}</span>`;
+    legend.appendChild(d);
+  });
+
+  const scales={
+    x:{ticks:{maxTicksLimit:18,maxRotation:45,font:{size:11}}},
+    y:{position:'left',ticks:{font:{size:11},callback:v=>fmt(v)},
+       title:{display:true,text:'Serie original',font:{size:10},color:col.line}},
+  };
+  if(hasAdj){
+    scales.y2={position:'right',grid:{drawOnChartArea:false},
+      ticks:{font:{size:11},callback:v=>fmt(v)},
+      title:{display:true,text:`Ajustada (IPC ${labelCorto})`,font:{size:10},color:ADJ_COLOR.line}};
+  }
+
+  S.chart=new Chart(ctx,{
+    type:'line', data:{labels:datos.map(d=>d.periodo||''),datasets},
+    options:{
+      responsive:true, interaction:{mode:'index',intersect:false},
+      plugins:{
+        legend:{display:false},
+        tooltip:{callbacks:{
+          label:c=>`${c.dataset.label}: ${fmt(c.parsed.y)}`,
+        }},
       },
-      scales: {
-        x: { ticks: { maxTicksLimit: 18, maxRotation: 45, font: { size: 11 } } },
-        y: {
-          ticks: { font: { size: 11 }, callback: v => fmt(v) },
-          ...(hasNeg && {
-            grid: {
-              color: ctx2 =>
-                ctx2.tick.value === 0
-                  ? 'rgba(185,28,28,.3)'
-                  : 'rgba(0,0,0,.06)',
-            }
-          })
-        }
-      }
+      scales,
     }
   });
 }
 
-// ── CSV ──────────────────────────────────────────────────────────────────────
-g('btn-csv').addEventListener('click', () => {
-  if (!S.serie) return;
-  window.location.href =
-    `/api/export/csv?fuente=${encodeURIComponent(S.fuente)}` +
-    `&frecuencia=${encodeURIComponent(S.frecuencia)}` +
-    `&serie=${encodeURIComponent(S.serie)}` +
-    `&desde=${g('d-desde').value}&hasta=${g('d-hasta').value}`;
+/* ── CSV ────────────────────────────────────────────────────────────────── */
+g('btn-csv').addEventListener('click',()=>{
+  if(!S.result)return;
+  const hasAdj=S.adjResult&&S.adjResult.some(d=>d.valorAdj!=null);
+
+  if(!hasAdj){
+    window.location.href=
+      `/api/export/csv?fuente=${encodeURIComponent(S.fuente)}`+
+      `&frecuencia=${encodeURIComponent(S.frecuencia)}`+
+      `&serie=${encodeURIComponent(S.serie)}`+
+      `&desde=${g('d-desde').value}&hasta=${g('d-hasta').value}`;
+    return;
+  }
+
+  const {meta}=S.result;
+  const labelCorto=S.ipcNombre?IPC_SERIES.find(s=>s.value===S.ipcNombre)?.label||'IPC':'IPC';
+  const lines=[
+    `# Serie: ${meta.serie_nombre}`,
+    `# Cuadro: ${meta.cuadro} — ${meta.nombre_cuadro}`,
+    `# Frecuencia: ${meta.frecuencia}`,
+    `# Unidad: ${meta.unidad}`,
+    `# IPC ajuste: ${S.ipcNombre}`,
+    `# Fuente: INDEC — Apéndice Estadístico, Capítulo 4`,
+    `periodo,valor_original,ipc_${labelCorto.replace(/\s+/g,'_')},valor_ajustado`,
+  ];
+  S.adjResult.forEach(d=>{
+    lines.push([d.periodo,d.valor??'',d.ipcVal??'',d.valorAdj!=null?d.valorAdj.toFixed(6):''].join(','));
+  });
+  const blob=new Blob([lines.join('\n')],{type:'text/csv;charset=utf-8;'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  const fn=`IPC_ajustado_${meta.serie_nombre.slice(0,25)}_${labelCorto}.csv`.replace(/\s+/g,'_').replace(/[/\\]/g,'-');
+  a.href=url;a.download=fn;a.click();URL.revokeObjectURL(url);
 });
 
-// ── Boot ──────────────────────────────────────────────────────────────────────
+/* ── Reset button ───────────────────────────────────────────────────────── */
+g('btn-reset').addEventListener('click',()=>{
+  g('sel-fuente').value=''; g('fuente-desc').style.display='none';
+  S.fuente=S.frecuencia=S.serie=''; S.dbNum=null;
+  reset(1); st('',''); setStep(1);
+});
+
 init();
 </script>
 </body>
